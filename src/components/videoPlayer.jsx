@@ -38,7 +38,6 @@ class VideoPlayerComponent extends Component {
     if(src.length > 0) {
       return (
         <div style={{ margin: 25, textAlign: "center" }}>
-          <h5>Playing</h5>
           <Youtube
             opts={opts}
             onEnd={this.handleEnd}

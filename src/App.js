@@ -6,9 +6,6 @@ function App() {
     <div className='container'>
       <div className='row'>
         <Main />
-        <div className='column'>
-
-        </div>
       </div>
     </div>
   );

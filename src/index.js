@@ -5,9 +5,15 @@ import { createStore } from "redux";
 import rootReducer from './reducers/'
 import "./css/skeleton.css";
 import App from "./App";
+import { loadState, saveState } from './localstorage';
 import * as serviceWorker from "./serviceWorker";
 
-const store = createStore(rootReducer)
+const persistedStore = loadState();
+const store = createStore(rootReducer, persistedStore);
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
 window.store = store;
 

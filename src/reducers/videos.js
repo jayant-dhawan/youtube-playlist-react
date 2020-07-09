@@ -10,7 +10,9 @@ const videos = (state = initialState, action) => {
       };
 
     case 'REMOVE_VIDEO':
-      return;
+      return {
+        playlist: state.playlist.filter((el) => el.id !== action.payload.id)
+      };
 
     case 'REMOVE_TOP_VIDEO':
       return {

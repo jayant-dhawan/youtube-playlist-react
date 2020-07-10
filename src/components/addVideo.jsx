@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addVideo } from '../actions/index'
+import { addVideo } from "../actions/index";
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -27,11 +27,14 @@ class AddVideoComponent extends Component {
     const { link } = this.state;
     const regex = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
     const validLink = link.trim().match(regex);
-    if(validLink && validLink[0] === link.trim()){
+    if (validLink && validLink[0] === link.trim()) {
       this.props.addVideo(validLink[1]);
     } else {
-      alert('Link not valid');
+      alert("Link not valid");
     }
+    this.setState({
+      link: "",
+    });
   }
 
   render() {
@@ -46,9 +49,6 @@ class AddVideoComponent extends Component {
   }
 }
 
-const AddVideo = connect(
-  null,
-  mapDispatchToProps
-)(AddVideoComponent);
+const AddVideo = connect(null, mapDispatchToProps)(AddVideoComponent);
 
 export default AddVideo;

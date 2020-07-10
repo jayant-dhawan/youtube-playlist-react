@@ -29,8 +29,12 @@ class PlayListComponent extends Component {
     return (
       <div style={{ margin: 25, textAlign: "center" }}>
         <h4>Playlist:</h4>
-        <Shuffle />
-        <Autoplay />
+        <hr />
+        <div>
+          <Shuffle />
+          <Autoplay />
+        </div>
+        <hr/>
         <ul>
           {playlist.map((el) => (
             <li key={el.id}>

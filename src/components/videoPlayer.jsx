@@ -56,7 +56,7 @@ class VideoPlayerComponent extends Component {
       );
     }
 
-    return <p>List is empty</p>;
+    return <h5 style={{ textAlign: "center" }}>List is empty</h5>;
   }
 }
 

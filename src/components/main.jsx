@@ -7,11 +7,12 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <div className="seven columns">
+        <div className="seven columns" >
           <AddVideo />
+          <hr/>
           <VideoPlayer />
         </div>
-        <div className='five columns'>
+        <div className='five columns' >
           <PlayList />
         </div>
       </div>

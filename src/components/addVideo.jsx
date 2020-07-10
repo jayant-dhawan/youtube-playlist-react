@@ -43,6 +43,7 @@ class AddVideoComponent extends Component {
           id="link"
           type="text"
           value={this.state.link}
+          placeholder='Enter YouTube Video Link'
         />
         <button onClick={this.handleClick} style={{ marginLeft: 10 }}>
           Add

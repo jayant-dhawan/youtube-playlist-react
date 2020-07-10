@@ -1,9 +1,7 @@
-let nextVideo = 0;
-
 export const addVideo = link => ({
   type: 'ADD_VIDEO',
   payload: {
-    id: nextVideo++,
+    id: link,
     link
   }
 })
@@ -17,4 +15,8 @@ export const removeVideo = id => ({
 
 export const removeTopVideo = () => ({
   type: 'REMOVE_TOP_VIDEO'
+})
+
+export const shuffle = () => ({
+  type: 'SHUFFLE'
 })

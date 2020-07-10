@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { removeVideo } from "../actions";
+import Shuffle from "./shuffle";
 
 const mapStateToProps = (state) => {
   return { videos: state.videos };
@@ -27,6 +28,7 @@ class PlayListComponent extends Component {
     return (
       <div style={{ margin: 25, textAlign: "center" }}>
         <h4>PlayList:</h4>
+        <Shuffle />
         <ul>
           {playlist.map((el) => (
             <li key={el.id}>

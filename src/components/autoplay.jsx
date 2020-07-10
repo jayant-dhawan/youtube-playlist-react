@@ -18,6 +18,11 @@ class AutoplayComponent extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  /**
+   * 
+   * Handling Autoplay On/Off buttton onClick event to turn
+   * Autoplay feature on and off.
+   */
   handleClick() {
     this.props.changeAutoplay();
   }

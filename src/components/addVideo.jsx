@@ -18,10 +18,22 @@ class AddVideoComponent extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  /**
+   * 
+   * @param {*} event 
+   * 
+   * Handling onChange event to store input in the state.
+   */
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
 
+  /**
+   * 
+   * @param {*} event 
+   * 
+   * Handling Add Video button onClick event.
+   */
   handleClick(event) {
     event.preventDefault();
     const { link } = this.state;

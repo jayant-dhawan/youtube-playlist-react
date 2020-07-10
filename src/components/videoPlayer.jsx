@@ -23,11 +23,24 @@ class VideoPlayerComponent extends Component {
     };
   }
 
+  /**
+   *
+   * @param {*} event
+   *
+   * Handling State Change event of the Youtube web Player to
+   * detect video end and play next video automatically if the
+   * autoplay feature is turned on.
+   */
   handleChange(event) {
     if (event.target.getPlayerState() === -1 && this.props.videos.autoplay)
       event.target.playVideo();
   }
 
+  /**
+   *
+   * Handling Video End event from Youtube web Player to delete the
+   * top video playing from the list.
+   */
   handleEnd() {
     this.props.removeTopVideo();
   }

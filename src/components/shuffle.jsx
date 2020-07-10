@@ -14,6 +14,10 @@ class ShuffleComponent extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  /**
+   * 
+   * Handling Shuffle button onClick event to shuffle the video links in the list.
+   */
   handleClick() {
     this.props.shuffle();
   }

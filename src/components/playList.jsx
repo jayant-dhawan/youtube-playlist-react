@@ -20,6 +20,13 @@ class PlayListComponent extends Component {
     this.hanldeClick = this.hanldeClick.bind(this);
   }
 
+  /**
+   * 
+   * @param {*} id -> id of the video to be deleted
+   * 
+   * Handling delete video button onClick event to delete video link
+   * from the list.
+   */
   hanldeClick(id) {
     this.props.removeVideo(id);
   }

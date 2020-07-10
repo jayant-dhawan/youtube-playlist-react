@@ -1,5 +1,6 @@
 const initialState = {
   playlist: [],
+  autoplay: false
 }
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
@@ -11,6 +12,7 @@ function shuffleArray(array) {
 }
 
 const videos = (state = initialState, action) => {
+  let autoplay = state.autoplay;
   let playlist = [...state.playlist];
   switch (action.type) {
     case 'ADD_VIDEO':
@@ -19,23 +21,31 @@ const videos = (state = initialState, action) => {
       } else {
         alert('Link already present');
       }
-      return { playlist };
+      return { playlist, autoplay };
 
     case 'REMOVE_VIDEO':
       return {
-        playlist: playlist.filter((el) => el.id !== action.payload.id)
+        playlist: playlist.filter((el) => el.id !== action.payload.id),
+        autoplay
       };
 
     case 'REMOVE_TOP_VIDEO':
       return {
-        playlist: playlist.slice(1)
+        playlist: playlist.slice(1),
+        autoplay
       };
 
     case 'SHUFFLE':
       if (playlist.length > 0) {
         shuffleArray(playlist);
       }
-      return { playlist };
+      return { playlist, autoplay };
+
+    case 'AUTOPLAY':
+      return {
+        playlist,
+        autoplay: !autoplay
+      };
 
     default:
       return state

@@ -20,3 +20,7 @@ export const removeTopVideo = () => ({
 export const shuffle = () => ({
   type: 'SHUFFLE'
 })
+
+export const autoplay = () => ({
+  type: 'AUTOPLAY'
+})

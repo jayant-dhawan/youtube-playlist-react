@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Youtube from "react-youtube";
 import { connect } from "react-redux";
-import { removeTopVideo } from '../actions/index'
+import { removeTopVideo } from "../actions/index";
 
 const mapStateToProps = (state) => {
   return { videos: state.videos };
@@ -17,10 +17,18 @@ class VideoPlayerComponent extends Component {
   constructor(props) {
     super(props);
     this.handleEnd = this.handleEnd.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      autoplay: false,
+    };
+  }
+
+  handleChange(event) {
+    if (event.target.getPlayerState() === -1 && this.props.videos.autoplay)
+      event.target.playVideo();
   }
 
   handleEnd() {
-    console.log("Video Ended");
     this.props.removeTopVideo();
   }
 
@@ -35,11 +43,12 @@ class VideoPlayerComponent extends Component {
     };
     const src = this.props.videos.playlist;
 
-    if(src.length > 0) {
+    if (src.length > 0) {
       return (
         <div style={{ margin: 25, textAlign: "center" }}>
           <Youtube
             opts={opts}
+            onStateChange={this.handleChange}
             onEnd={this.handleEnd}
             videoId={src[0].link}
           />
@@ -47,10 +56,13 @@ class VideoPlayerComponent extends Component {
       );
     }
 
-    return (<p>List is empty</p>);
+    return <p>List is empty</p>;
   }
 }
 
-const VideoPlayer = connect(mapStateToProps, mapDispatchToProps)(VideoPlayerComponent);
+const VideoPlayer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VideoPlayerComponent);
 
 export default VideoPlayer;

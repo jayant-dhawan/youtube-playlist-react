@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { removeVideo } from "../actions";
 import Shuffle from "./shuffle";
+import Autoplay from "./autoplay";
 
 const mapStateToProps = (state) => {
   return { videos: state.videos };
@@ -29,6 +30,7 @@ class PlayListComponent extends Component {
       <div style={{ margin: 25, textAlign: "center" }}>
         <h4>PlayList:</h4>
         <Shuffle />
+        <Autoplay />
         <ul>
           {playlist.map((el) => (
             <li key={el.id}>

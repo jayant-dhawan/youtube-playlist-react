@@ -28,7 +28,7 @@ class PlayListComponent extends Component {
     const { playlist } = this.props.videos;
     return (
       <div style={{ margin: 25, textAlign: "center" }}>
-        <h4>PlayList:</h4>
+        <h4>Playlist:</h4>
         <Shuffle />
         <Autoplay />
         <ul>

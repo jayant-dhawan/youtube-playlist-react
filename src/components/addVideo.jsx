@@ -29,18 +29,21 @@ class AddVideoComponent extends Component {
     const validLink = link.trim().match(regex);
     if (validLink && validLink[0] === link.trim()) {
       this.props.addVideo(validLink[1]);
+      this.setState({ link: "" });
     } else {
       alert("Link not valid");
     }
-    this.setState({
-      link: "",
-    });
   }
 
   render() {
     return (
       <div style={{ margin: 25, textAlign: "center" }}>
-        <input onChange={this.handleChange} id="link" type="text" />
+        <input
+          onChange={this.handleChange}
+          id="link"
+          type="text"
+          value={this.state.link}
+        />
         <button onClick={this.handleClick} style={{ marginLeft: 10 }}>
           Add
         </button>
